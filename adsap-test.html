@@ -1,0 +1,75 @@
+
+<link rel="stylesheet" href="adsap-default-styles.css">
+
+<style>
+
+#storyElem {
+	width: 35em;
+	max-width: calc(100% - 1em);
+	margin: 5em auto;
+	font-size: 18px;
+	background-color: white;
+	padding: 0.5em;
+}
+
+</style>
+
+
+<div id="storyElem"></div>
+
+
+<script src="adsap-parser.js"></script>
+<script src="adsap-compile.js"></script>
+<script src="adsap-default-config.js"></script>
+
+<script>
+
+const storyElem = document.getElementById("storyElem");
+
+let scriptDone;
+let storyData;
+
+(async function() {
+	
+	const storyUrl = queryParam("story");
+	
+	const extraFiles = await (await fetch("/storyExtraFiles.json?story=" + encodeURIComponent(decodeURIComponent(storyUrl)))).json();
+	for (const url of extraFiles) {
+		if (/\.css/i.test(url)) {
+			const link = document.createElement("link");
+			link.rel = "stylesheet";
+			link.href = url;
+			document.body.appendChild(link);
+		} else if (/\.js/i.test(url)) {
+			await runScript(url);
+		}
+	}
+	
+	const source = await (await fetch(storyUrl)).text();
+	const script = document.createElement("script");
+	script.innerHTML = adsapCompile(source, "runStory") + `; runStory(storyElem, adsapDefaultConfig, storyData);`;
+	document.body.appendChild(script);
+	
+})();
+
+
+function runScript(url) {
+	return new Promise(resolve => {
+		scriptDone = resolve;
+		const script = document.createElement("script");
+		script.src = url;
+		document.body.appendChild(script);
+	});
+}
+
+
+function queryParam(name) {
+	var params = location.search.substring(1).split("&");
+	for (var i = 0; i < params.length; i++) {
+		var split = params[i].split("=");
+		if (split[0] === name) return split[1];
+	}
+	return false;
+}
+
+</script>

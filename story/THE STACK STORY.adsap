@@ -1,0 +1,55 @@
+﻿
+
+#title: ***THE STACK STORY***
+
+#author: someone awesome
+
+
+== intro
+Hi, This is ***THE STACK STORY***
+* Do something => do
+* Stack is cool => cool
+
+== do
+You go do something; what do you do?
+* Fly through a cloud! => flycloud
+* Read a story => intro
+
+== flycloud
+OK, how do you fly?
+* In an airplane => airplane
+* Duh, I'm a fairy; I fly with my wings => fairy
+
+== airplane
+You get in an airplane and go to fly through a cloud, but unfortunately, the cloud is taking a walk! => end
+
+== fairy
+You flutter over to a nearby cloud and say, 'Hi, Cloudy! Can I fly through you?'
+
+Cloudy looks affirmative in a cloudy sort of way, and you fly through! => end
+
+== cool
+Well, this is a story about HTML!!!
+* Realistic HTML => realhtml
+* Unrealistic HTML => unrealhtml
+
+== realhtml
+HyperText Markup Language, commonly referred to as HTML, is the standard markup language used to create web pages
+
+--Wikipedia
+
+=> end
+
+== unrealhtml
+An HTML page woke up, and &lt;blink&gt;ed its &lt;i&gt;s
+* Use CSS instead of &lt;blink&gt; => css
+* OK, continue => continue
+
+== css
+Fine, the page &lt;style&gt;i \{animation-duration: 1s;animation-name: blink;animation-iteration-count: 3;animation-timing-function: step-ending;\}@keyframes blink \{from \{opacity: 1;\}50% \{opacity: 0;\}to \{opacity: 1;\}\}&lt;/style&gt;ed its &lt;i&gt;s => end
+
+== continue
+Then the user closed the tab and the page died => end
+
+== end
+END ==> LIKE SERIOUSLY THIS IS THE END
